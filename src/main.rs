@@ -26,7 +26,7 @@ pub fn make_activity(state: &str, index: usize) -> ActivityBuilder {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    env_logger::init();
+    simple_logger::SimpleLogger::new().with_colors(true).init().unwrap();
 
     let client = util::make_client(ds::Subscriptions::ACTIVITY).await;
 
